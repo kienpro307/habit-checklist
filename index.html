@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Checklist Any Eny</title>
+<meta name="robots" content="noindex">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Checklist">
+<meta name="theme-color" content="#f6f4ef">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon-180.png">
+<style>
+  :root { --bg:#f6f4ef; --card:#fff; --ink:#1f1d1a; --muted:#6f6a62; --line:#e4dfd5;
+          --accent:#2f7d5b; --accent-soft:#e3f1ea; --bad:#b4402f; --radius:14px; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#161513; --card:#22201d; --ink:#f1ede6; --muted:#a39d93; --line:#38342e;
+            --accent:#5cc493; --accent-soft:#1f3a2e; --bad:#ef7a66; }
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink);
+         font:16px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+  header { display:flex; justify-content:space-between; align-items:center;
+           padding:calc(env(safe-area-inset-top) + 12px) 16px 8px; }
+  header h1 { font-size:18px; margin:0; }
+  #sync { font-size:13px; color:var(--muted); }
+  main { max-width:520px; margin:0 auto; padding:0 16px 40px; }
+  button { font:inherit; color:inherit; background:var(--card); border:1px solid var(--line);
+           border-radius:10px; padding:10px 12px; cursor:pointer; }
+  button:disabled { opacity:.45; cursor:default; }
+  input { font:inherit; width:100%; padding:10px 12px; border:1px solid var(--line);
+          border-radius:10px; background:var(--card); color:var(--ink); }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+          padding:14px; margin:12px 0; }
+  .card h2, .card h3 { margin:0 0 8px; font-size:17px; }
+  .row { display:flex; gap:8px; margin:8px 0; }
+  .row > * { flex:1; }
+  .big { width:100%; padding:14px; margin:6px 0; font-weight:600; }
+  .big.on, .tab.on { border-color:var(--accent); background:var(--accent-soft); }
+  .tabs { display:flex; gap:8px; margin-top:4px; }
+  .tab { flex:1; text-align:center; font-size:14px; }
+  .nav { display:flex; align-items:center; justify-content:space-between; margin:12px 0 0; }
+  .nav span { font-weight:600; }
+  .nav button { width:48px; font-size:20px; padding:6px; }
+  .link { border:none; background:none; color:var(--accent); padding:4px 0; }
+  .item { display:flex; align-items:center; gap:10px; width:100%; text-align:left;
+          padding:13px 12px; margin:6px 0; min-height:48px; }
+  .item.on { background:var(--accent-soft); border-color:var(--accent); }
+  .item.ghost { justify-content:center; color:var(--muted); }
+  .box { font-size:18px; }
+  .counter { display:flex; align-items:center; gap:8px; margin:6px 0; padding:8px 12px;
+             border:1px solid var(--line); border-radius:10px; }
+  .counter span { flex:1; }
+  .counter small { display:block; color:var(--muted); }
+  .counter button { width:44px; height:40px; font-size:20px; padding:0; }
+  .status { margin:0 0 6px; font-weight:600; }
+  .status.done { color:var(--accent); }
+  .status.fail { color:var(--bad); }
+  .hint { color:var(--muted); font-size:14px; margin:6px 0; }
+  ul { padding-left:0; list-style:none; margin:0; }
+  li { padding:6px 0; border-top:1px solid var(--line); }
+  li:first-child { border-top:none; }
+  li small { color:var(--muted); }
+  li.won { color:var(--accent); font-weight:600; }
+  #toast { position:fixed; left:16px; right:16px; bottom:calc(env(safe-area-inset-bottom) + 16px);
+           max-width:488px; margin:0 auto; background:var(--accent); color:#fff; padding:14px;
+           border-radius:12px; font-weight:600; text-align:center; white-space:pre-line; }
+</style>
+</head>
+<body>
+<header><h1>Checklist Any & Eny</h1><span id="sync" aria-live="polite"></span></header>
+<main id="app"></main>
+<div id="toast" hidden role="status"></div>
+<noscript>Cần bật JavaScript.</noscript>
+<script type="module" src="js/app.js"></script>
+</body>
+</html>
